@@ -82,6 +82,23 @@ the bounding box. Under bbox-fit scaling the body then shrinks to make room.
 **Fix:** keep the weapon close to the body. Generate large FX as a separate
 sheet the runtime composites.
 
+## The ground shadow comes out the colour of the chroma-key background
+
+**Cause:** the prompt says the background is solid `#FF00FF` and asks for a
+ground shadow without saying what colour it is. The model reads the shadow as
+shaded background and paints it dark magenta.
+
+This is not chroma-key bleed — checked on a real sheet, the shadow pixels are
+fully opaque and identical before and after keying. The model simply drew them
+that colour, so no postprocessing will recover it.
+
+**Fix:** give the shadow its own colour in the prompt: "a small flat elliptical
+ground shadow in a dark neutral grey-brown, not tinted by the background
+colour."
+
+**How to catch it early:** sample the shadow pixels in the raw sheet. Anything
+with a red and blue channel far above green is picking up the key colour.
+
 ## The delivered frames cannot be reproduced from the sheet you generated
 
 **Cause:** you processed the generator's working file in place. A generation

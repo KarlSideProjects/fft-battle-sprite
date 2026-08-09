@@ -19,7 +19,12 @@ from PIL import Image
 OUTLINE_RGB = np.array([26, 20, 32], dtype=np.int16)
 OUTLINE_MIX = 0.70
 ALPHA_ON = 0.45
-MODE_COLORS = 64
+# Buckets used only to make block modes stable against generator noise. Keep
+# this generous: it must not become the step that picks the palette. At 64 a
+# small high-chroma element -- a steel blade among browns -- gets merged into
+# the dominant hue before the mode is even taken, and no later setting can
+# bring it back. The real budget is --colors.
+MODE_COLORS = 256
 
 
 def cells(sheet: Image.Image, rows: int, cols: int) -> list[Image.Image]:

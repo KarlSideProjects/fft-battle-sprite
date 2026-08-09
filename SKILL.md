@@ -60,7 +60,7 @@ are 1-2 dark pixels each with no rendered nose or mouth, 1px solid dark outline
 enclosing the whole silhouette, hard-edged colour blocks with 2-3 value steps per
 material and no gradients or anti-aliasing, limited palette of roughly 16-24
 colours, light source fixed at the upper left, small flat elliptical ground
-shadow under the feet, [action description with the strike travelling right],
+shadow under the feet in a dark neutral grey-brown not tinted by the background, [action description with the strike travelling right],
 exact 2x2 grid, same subject in each cell, centered, consistent scale, feet on
 one shared ground line, subject fills about 70% of cell height, solid #FF00FF
 background, no text, no borders, no detached FX
