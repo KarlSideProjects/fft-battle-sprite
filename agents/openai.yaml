@@ -1,0 +1,4 @@
+interface:
+  display_name: "FFT Battle Sprite"
+  short_description: "Low-res FFT-style pixel battle sprites (idle/walk/attack) from a reference portrait."
+  default_prompt: "Use $fft-battle-sprite to generate a Final Fantasy Tactics style battle sprite set for a character: one-third-head proportions, art authored at the delivery pixel budget, strikes travelling right, and a single mode-sampling downscale pass that shares one scale and one palette across every action."
