@@ -74,6 +74,31 @@ box toward the extended limb, so centring the box shoves the body the other way.
 **Fix:** anchor on the feet. `pixelize_sprite.py` does this; if you write your
 own placement, do the same.
 
+## The character renders smaller than the rest of the cast
+
+**Cause:** something reaches beyond the body — a raised staff, a spear, a
+greatsword, a cape, long flowing hair — and inflates the bounding box. The
+downscaler derives one scale factor from the tallest box across every frame, so
+the whole figure shrinks to make room for the appendage. Nothing looks broken;
+the character is just quietly smaller than everyone else.
+
+**Fix:** contain the appendage in the prompt. A staff's finial no higher than
+the top of the head, hair swept over one shoulder, a long blade angled across
+the body rather than raised. Ask for a compact silhouette roughly as wide as it
+is tall.
+
+**How to catch it early:** compare bounding-box heights between this character's
+sheets and an accepted character's. Compare head sizes too — if the head is
+smaller at the same cell size, the body lost its budget to something else.
+
+## A rejected pose is not a reason to lower --body-frac
+
+When the downscaler exits saying a pose does not fit its cell, that is the guard
+working: the pose reaches too far from the feet anchor. Lowering `--body-frac`
+makes it fit by shrinking the character, which trades a loud failure for the
+silent one above — and it shrinks every other frame with it, since the scale is
+shared. Regenerate the sheet more compact instead.
+
 ## A weapon blows out the frame
 
 **Cause:** a long lash, slash arc, or trail included in the body sheet inflates
