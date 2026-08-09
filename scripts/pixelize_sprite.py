@@ -19,11 +19,8 @@ from PIL import Image
 OUTLINE_RGB = np.array([26, 20, 32], dtype=np.int16)
 OUTLINE_MIX = 0.70
 ALPHA_ON = 0.45
-# Buckets used only to make block modes stable against generator noise. Keep
-# this generous: it must not become the step that picks the palette. At 64 a
-# small high-chroma element -- a steel blade among browns -- gets merged into
-# the dominant hue before the mode is even taken, and no later setting can
-# bring it back. The real budget is --colors.
+# Default buckets for the pre-quantisation that stabilises block modes against
+# generator noise. See --mode-colors.
 MODE_COLORS = 256
 
 
@@ -40,12 +37,13 @@ def bbox_of(cell: Image.Image) -> tuple[int, int, int, int]:
     return int(xs.min()), int(ys.min()), int(xs.max()) + 1, int(ys.max()) + 1
 
 
-def mode_downsample(crop: Image.Image, tw: int, th: int) -> np.ndarray:
+def mode_downsample(crop: Image.Image, tw: int, th: int,
+                    mode_colors: int = MODE_COLORS) -> np.ndarray:
     ca = np.array(crop)
     bh, bw = ca.shape[:2]
     q = Image.fromarray(ca[..., :3]).quantize(
-        colors=MODE_COLORS, method=Image.MEDIANCUT, dither=Image.NONE)
-    pal = np.array(q.getpalette()[:MODE_COLORS * 3]).reshape(-1, 3)
+        colors=mode_colors, method=Image.MEDIANCUT, dither=Image.NONE)
+    pal = np.array(q.getpalette()[:mode_colors * 3]).reshape(-1, 3)
     idx = np.array(q)
     alpha = ca[..., 3]
     out = np.zeros((th, tw, 4), dtype=np.uint8)
@@ -141,6 +139,12 @@ def main() -> None:
     ap.add_argument("--feet-margin", type=int, default=3)
     ap.add_argument("--colors", type=int, default=32,
                     help="shared palette size across all frames")
+    ap.add_argument("--mode-colors", type=int, default=MODE_COLORS,
+                    help="buckets used to stabilise block modes before sampling. "
+                         "Lower values suppress generator noise harder, giving "
+                         "flatter large areas; they also let a small high-chroma "
+                         "element be merged into the dominant hue before sampling, "
+                         "which no later setting can undo")
     ap.add_argument("--out", type=Path, required=True)
     args = ap.parse_args()
 
@@ -163,7 +167,8 @@ def main() -> None:
     for (cell, name), box in zip(jobs, boxes):
         bw, bh = box[2] - box[0], box[3] - box[1]
         tw, th = max(1, round(bw * scale)), max(1, round(bh * scale))
-        px = reoutline(despeckle(mode_downsample(cell.crop(box), tw, th)))
+        px = reoutline(despeckle(
+            mode_downsample(cell.crop(box), tw, th, args.mode_colors)))
         canvas = np.zeros((args.cell, args.cell, 4), dtype=np.uint8)
         ox = round(args.cell / 2.0 - feet_center(px))
         oy = args.cell - th - args.feet_margin
