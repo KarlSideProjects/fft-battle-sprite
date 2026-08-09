@@ -76,6 +76,12 @@ blurry, pillow shading, drop shadow behind the sprite, multiple subjects per cel
 text, watermark, border, striking action directed to the left
 ```
 
+## Containment
+
+The scale factor comes from the tallest bounding box across every frame, and frames are anchored on the feet. Anything that reaches — a raised staff, a spear, a cape, long flowing hair — inflates that box, and the character shrinks to make room for it. Contain reaching elements in the prompt: a staff finial no higher than the head, hair over one shoulder, a long blade angled across the body. Ask for a silhouette roughly as wide as it is tall.
+
+If the downscaler refuses a pose, regenerate it more compact. Do not lower `--body-frac` to make it fit — that shrinks every frame, since the scale is shared, and converts a loud failure into a silent one.
+
 ## Attack sheets
 
 Four frames: wind-up, strike, follow-through, recover.
