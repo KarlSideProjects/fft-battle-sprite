@@ -39,7 +39,7 @@ Reproduce it yourself from the shipped masters:
 python3 scripts/pixelize_sprite.py \
   --sheet examples/masters/idle-2x2.png:2:2:idle_0,idle_1,idle_2,idle_3 \
   --sheet examples/masters/attack-2x2.png:2:2:attack_0,attack_1,attack_2,attack_3 \
-  --cell 64 --colors 32 --body-frac 0.66 --out /tmp/out
+  --cell 64 --colors 32 --out /tmp/out
 ```
 
 The output is byte-for-byte identical to `examples/frames/`. That determinism is
@@ -47,31 +47,61 @@ the point: masters plus a command line reproduce the delivered art, so you can
 change the delivery size or the palette later without paying for a new
 generation.
 
-Two things in this example are deliberately left as they came out, because they
-are instructive rather than decorative. The ground shadow is magenta-tinted —
-the model shaded it toward the `#FF00FF` chroma-key background because the
-prompt never said what colour a shadow is. And `--body-frac` is 0.66 rather than
-the usual 0.70, because the fully extended sword would otherwise push the pose
-out of the cell. Both are covered in
+An earlier attempt at this same example failed twice, and both fixes are now in
+the prompt template. Its ground shadow came out magenta, because the prompt
+named the background colour but never the shadow's, so the model shaded one into
+the other. And its sword was drawn fully extended, which inflated the frame's
+bounding box until the pose no longer fit its cell — the downscaler refused it
+rather than clipping silently. Naming the shadow colour and asking for a compact
+silhouette fixed both. See
 [`references/failure-modes.md`](references/failure-modes.md).
 
 ## Install
 
-Drop the directory into wherever your agent looks for skills:
+From the project you want the skill in:
+
+```sh
+npx github:jhihweijhan/fft-battle-sprite
+```
+
+That installs it for both agents:
 
 | Agent | Location |
 |---|---|
 | Claude Code | `.claude/skills/fft-battle-sprite` |
 | Codex CLI | `.codex/skills/fft-battle-sprite` |
 
-If you use both, keep one copy and symlink it:
+```
+--claude        Claude Code only
+--codex         Codex CLI only
+--link          One copy in .agents/skills, symlinked from both
+--dir <path>    Install into another project root
+--force         Overwrite an existing installation
+```
+
+It refuses to overwrite an existing installation unless you pass `--force`, so a
+skill directory you have edited locally is safe.
+
+### As a submodule
+
+If you want the skill to track upstream, add it as a submodule and symlink both
+agents at it:
 
 ```sh
-mkdir -p .agents/skills .claude/skills .codex/skills
 git submodule add https://github.com/jhihweijhan/fft-battle-sprite .agents/skills/fft-battle-sprite
+mkdir -p .claude/skills .codex/skills
 ln -s ../../.agents/skills/fft-battle-sprite .claude/skills/fft-battle-sprite
 ln -s ../../.agents/skills/fft-battle-sprite .codex/skills/fft-battle-sprite
 ```
+
+Clones then need `--recursive`, or a later `git submodule update --init` —
+without it those symlinks point at an empty directory and the skill silently
+does not exist.
+
+### Requirements
+
+The downscaler needs Python 3.10+ with `pillow` and `numpy`
+(`pip install -r requirements.txt`).
 
 Image generation itself requires an agent with a built-in image tool. Codex CLI
 has `image_gen`; Claude Code does not, and can run the postprocessing half only.
@@ -84,6 +114,7 @@ has `image_gen`; Claude Code does not, and can run the postprocessing half only.
 | `references/failure-modes.md` | Each failure, its cause, its fix, and how to catch it early |
 | `scripts/pixelize_sprite.py` | Modal-sampling downscaler with outline rebuild, feet anchoring and a shared palette |
 | `examples/` | The worked example: full-resolution masters and the delivered frames |
+| `bin/install.mjs` | The `npx` installer |
 
 ## The downscaler
 

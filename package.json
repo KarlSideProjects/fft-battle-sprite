@@ -1,0 +1,36 @@
+{
+  "name": "fft-battle-sprite",
+  "version": "1.0.0",
+  "description": "Agent skill for generating Final Fantasy Tactics style low-resolution pixel battle sprites, for Claude Code and Codex CLI",
+  "type": "module",
+  "bin": {
+    "fft-battle-sprite": "bin/install.mjs"
+  },
+  "files": [
+    "bin",
+    "SKILL.md",
+    "references",
+    "scripts",
+    "agents",
+    "requirements.txt",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "agent-skill",
+    "claude-code",
+    "codex",
+    "pixel-art",
+    "sprite",
+    "game-development"
+  ],
+  "license": "MIT",
+  "author": "Karl (卡爾・詹)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhihweijhan/fft-battle-sprite.git"
+  },
+  "homepage": "https://github.com/jhihweijhan/fft-battle-sprite#readme"
+}
