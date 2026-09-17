@@ -10,7 +10,7 @@ import { dirname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const NAME = "fft-battle-sprite";
-const PAYLOAD = ["SKILL.md", "references", "scripts", "agents", "requirements.txt", "LICENSE"];
+const PAYLOAD = ["SKILL.md", "references", "scripts", "agents", "requirements.txt", "LICENSE", "LICENSING.md", "licenses"];
 const TARGETS = { claude: ".claude/skills", codex: ".codex/skills" };
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
