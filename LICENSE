@@ -1,21 +1,98 @@
-MIT License
+# KarlSideProjects Noncommercial Research License 1.0
 
-Copyright (c) 2026 Karl (卡爾・詹)
+SPDX-License-Identifier: LicenseRef-KarlSideProjects-Noncommercial-Research-1.0
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Required Notice: Copyright (c) 2026 Karl (jhihweijhan / JHIH WEI JHAN).
+Required Notice: Noncommercial use only; research and exchange are welcome under this license.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## Acceptance
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+In order to get any license under these terms, you must agree to them as both strict obligations and conditions to all your licenses.
+
+## Copyright License
+
+The licensor grants you a copyright license for the software to do everything you might do with the software that would otherwise infringe the licensor's copyright in it for any permitted purpose.  However, you may only distribute the software according to [Distribution License](#distribution-license) and make changes or new works based on the software according to [Changes and New Works License](#changes-and-new-works-license).
+
+## Distribution License
+
+The licensor grants you an additional copyright license to distribute copies of the software, including permitted changes and new works, solely for a permitted noncommercial purpose. Recipients receive their license directly from the licensor under these terms. You may not sell, rent, or charge for access to copies, or distribute them as part of a commercial product or service under this license.
+
+## Notices
+
+With every copy or substantial portion you distribute, you must include this complete license, the applicable LICENSING.md scope notices supplied with the software, and all applicable copyright, attribution, and third-party license notices. Preserve any plain-text lines beginning with `Required Notice:` supplied by the licensor. Clearly identify your modifications and their date, and do not imply endorsement by the original authors. A link alone does not replace the required license copies.
+
+## Changes and New Works License
+
+The licensor grants you an additional copyright license to make changes and new works based on the software for any permitted purpose.
+
+## Patent License
+
+The licensor grants you a patent license, solely for a permitted purpose, covering patent claims the licensor can license, or becomes able to license, that you would infringe by using the software.
+
+## Noncommercial Purposes
+
+Only noncommercial purposes are permitted under this license. A purpose is noncommercial only when it is not primarily intended for or directed toward commercial advantage, monetary compensation, or anticipated commercial application.
+
+Commercial use is not permitted, whether or not users are charged. Examples include selling or licensing products incorporating the software; paid hosting, SaaS, consulting, integration, support, or training based on it; advertising-supported or revenue-generating deployment; use in a business's internal operations; and research or development intended to support a commercial product, service, or business advantage. Calling an activity "research", "evaluation", or "internal use" does not exempt it.
+
+Commercial use requires a separate written agreement with the relevant rightsholder before that use begins. This license does not promise that such an agreement will be offered.
+
+## Personal Uses
+
+Noncommercial study, research, experiments, testing, hobby projects, teaching, reproduction of research results, publication of findings, and exchange of permitted modifications are welcome. These activities may include running, inspecting, copying, modifying, and sharing the software, subject to the other terms and the requirement that there be no anticipated commercial application.
+
+Attribution and sharing findings are encouraged; submitting your results or modifications to the licensor is not a condition of permission. Any redistribution must still comply with Notices.
+
+## Noncommercial Organizations
+
+An organization's legal status does not itself create an exception. Educational institutions, charities, public bodies, businesses, and individuals must all satisfy Noncommercial Purposes.
+
+Ordinary tuition for nonprofit education, general research grants, and reimbursement of actual publication expenses do not by themselves make an otherwise noncommercial activity commercial. This does not permit work directed toward commercialization, paid commercial training, or research whose purpose or funding obligations provide a sponsor with a commercial application or advantage.
+
+## Fair Use
+
+You may have "fair use" rights for the software under the law. These terms do not limit them.
+
+## No Other Rights
+
+These terms do not allow you to sublicense or transfer any of your licenses to anyone else, or prevent the licensor from granting licenses to anyone else.  These terms do not imply any other licenses.
+
+## Patent Defense
+
+If you make any written claim that the software infringes or contributes to infringement of any patent, your patent license for the software granted under these terms ends immediately. If your company makes such a claim, your patent license ends immediately for work on behalf of your company.
+
+## Violations
+
+The first time you are notified in writing that you have violated any of these terms, or done anything with the software not covered by your licenses, your licenses can nonetheless continue if you come into full compliance with these terms, and take practical steps to correct past violations, within 32 days of receiving notice.  Otherwise, all your licenses end immediately.
+
+## No Liability
+
+***As far as the law allows, the software comes as is, without any warranty or condition, and the licensor will not be liable to you for any damages arising out of these terms or the use or nature of the software, under any kind of legal claim.***
+
+## Definitions
+
+The **licensor** is Karl (jhihweijhan / JHIH WEI JHAN), or another rightsholder explicitly offering their own contributions under these terms, only to the extent that person is authorized to grant the relevant rights.
+
+The **software** means the project-authored code, firmware, binaries, documentation, designs, examples, and other materials explicitly made available under this license, but only to the extent of the licensor's rights. It excludes third-party material and separately licensed components, including the exceptions identified in LICENSING.md. Merely appearing in the same repository does not establish ownership or include an item in this grant.
+
+**You** refers to the individual or entity agreeing to these terms.
+
+**Your company** is any legal entity, sole proprietorship, or other organization that you work for, plus all organizations that control, are controlled by, or are under common control with it. **Control** means ownership of substantially all assets or the power to direct management and policies, directly or indirectly.
+
+**Your licenses** are all the licenses granted to you for the software under these terms.
+
+**Use** means anything you do with the software requiring one of your licenses.
+
+## Third-Party Material and Existing Rights
+
+Third-party code, libraries, models, weights, datasets, photographs, fonts, media, and separately licensed components retain their own licenses and notices. This license neither replaces nor adds restrictions to those independent grants. Material whose provenance or licensing is unresolved is not newly licensed by this document. Use and redistribution may require additional permissions from its rightsholders.
+
+This license applies to the versions and material expressly released under it. It does not retroactively revoke, narrow, or replace valid rights already granted for earlier versions, including rights under MIT, Apache, ISC, or other licenses. Copies of historical licenses, where supplied, document that history and are not an alternative license for newly covered material.
+
+No trademark, publicity, privacy, or third-party intellectual-property rights are granted. This license does not claim ownership of your inputs, independent research results, or outputs merely because you used the software; outputs that contain protected project or third-party material remain subject to the applicable rights. The software may not be used for a commercial purpose under this license even if a resulting output is independently owned by you.
+
+## Availability and Interpretation
+
+This license grants rights only in materials actually supplied under it. It does not require disclosure of private source code, delivery of model weights, access to a private repository, support, updates, or hardware. It does not waive separate confidentiality obligations. A public binary release is not a promise to publish its source.
+
+The English text of this LICENSE is authoritative. Translations and README summaries are explanatory and do not add permissions. This is a custom, noncommercial license, not an OSI-approved open-source license. Third-party and existing rights described above are unaffected.

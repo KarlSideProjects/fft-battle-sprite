@@ -13,7 +13,9 @@
     "scripts",
     "agents",
     "requirements.txt",
-    "LICENSE"
+    "LICENSE",
+    "LICENSING.md",
+    "licenses"
   ],
   "engines": {
     "node": ">=18"
@@ -26,7 +28,7 @@
     "sprite",
     "game-development"
   ],
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "author": "Karl (卡爾・詹)",
   "repository": {
     "type": "git",

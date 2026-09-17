@@ -1,5 +1,7 @@
 # fft-battle-sprite
 
+> **授權：僅限非商業用途，歡迎研究、教學與交流。** 完整條款見 [LICENSE](LICENSE)，適用範圍與第三方例外見 [授權規範](LICENSING.md)。
+
 把 AI 生成的大尺寸角色動作圖，整理成輪廓清楚、比例與配色一致的低解析度戰鬥精靈圖。適合需要小型遊戲角色素材的開發者：這裡提供生成提示工作流、Python 後處理工具，以及可直接重做的 **64×64 透明 PNG 範例**。
 
 ![範例：同一位劍士的待機與攻擊共八幀](docs/example-frames.png)
@@ -106,6 +108,6 @@ ln -s ../../.agents/skills/fft-battle-sprite .codex/skills/fft-battle-sprite
 
 ## 來源與授權
 
-軟體及文件依 [MIT LICENSE](LICENSE)，保留 Karl（卡爾・詹）的著作權聲明。既有版本紀錄及套件 metadata 使用 `jhihweijhan/fft-battle-sprite` 路徑；本文件操作入口使用目前組織位置。
+目前作者有權授權的工具與文件依 [非商用研究授權](LICENSE)，歡迎研究、修改與交流；舊版 MIT 權利與第三方例外見 [LICENSING.md](LICENSING.md)，保留 Karl（卡爾・詹）的著作權聲明。既有版本紀錄及套件 metadata 使用 `jhihweijhan/fft-battle-sprite` 路徑；本文件操作入口使用目前組織位置。
 
-範例為 repo 既有工作流產生、處理的泛用劍士；「Final Fantasy Tactics style」是既有風格描述，不表示本專案擁有 Square Enix 的遊戲素材或取得其背書。生成所用模型／服務及輸入參考圖的權利需另行確認，MIT 軟體授權不能代替這些來源條件。
+範例為 repo 既有工作流產生、處理的泛用劍士；「Final Fantasy Tactics style」是既有風格描述，不表示本專案擁有 Square Enix 的遊戲素材或取得其背書。生成所用模型／服務及輸入參考圖的權利需另行確認，專案授權不能代替這些來源條件。
